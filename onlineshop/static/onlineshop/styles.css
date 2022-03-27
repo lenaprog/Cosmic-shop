@@ -1,0 +1,62 @@
+.navbar-nav {
+    margin-left: auto;
+    font-size: 10px;
+}
+ body {
+     /*background: #1B1035;
+     background: linear-gradient( to right, #5c4297, #1B1035, #5c4297); */
+    background-color: rgb(116, 110, 129);
+    background: linear-gradient(90deg, rgba(85,0,255,1) 0%, rgba(61,9,121,1) 51%, rgba(85,0,255,1) 100%);
+    color: antiquewhite;
+    font-family: 'Roboto', Courier, monospace;
+ 
+ }
+
+ .nav-link {
+    color:antiquewhite;
+ }
+
+ .nav-link:hover {
+    text-decoration: underline;
+    color:antiquewhite
+ }
+
+ .btn.btn-primary {
+    background-color: rgb(64, 51, 95);
+    border: none;
+ }
+
+ .account {
+    font-size: 10px;
+    margin-top: 5px;
+ }
+
+ @keyframes animate {
+     from {opacity: 0%}
+     to {opacity:100%}
+ }
+
+@keyframes glow {
+    from {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #a01da5, 0 0 20px #a01da5, 0 0 25px #a01da5, 0 0 30px #a01da5, 0 0 35px #a01da5
+    }
+    to {
+    text-shadow: 0 0 10px #fff, 0 0 15px #c34de7, 0 0 20px #c34de7, 0 0 25px #c34de7, 0 0 30px #c34de7, 0 0 35px #c34de7, 0 0 40px #c34de7;
+    }
+}
+
+
+ #welcome {
+     text-align: center;
+     font-size: 30px;
+     animation: animate, glow ease-in-out infinite alternate;
+     animation-duration: 1s ;
+     
+    
+
+ }
+
+ .nav-link:hover {
+    text-decoration: underline;
+    color:antiquewhite
+ }

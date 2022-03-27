@@ -1,0 +1,24 @@
+{% extends "onlineshop/layout.html" %}
+
+{% block body %}
+
+<h2>Login</h2>
+
+{% if message %}
+<div>{{ message }}</div>
+{% endif %}
+
+<form action="{% url 'login' %}" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <input autofocus class="col-xs-4" type="email" name="email" placeholder="Email">
+    </div>
+    <div class="form-group ">
+        <input class="col-xs-4" type="password" name="password" placeholder="Password">
+    </div>
+    <button class="btn btn-primary btn-sm" type="submit" value="Login">Login</button>
+</form>
+
+<p class="account"> Don't have an account? <a href="#">Register here.</a></p>
+
+{% endblock %}
