@@ -1,7 +1,13 @@
 .navbar-nav {
-    margin-left: auto;
+   margin-left: auto;
     font-size: 10px;
 }
+
+.navbar-nav.flex-fill.justify-content-right {
+   margin-right: 0px;
+   padding-right: 0px;
+}
+
  body {
      /*background: #1B1035;
      background: linear-gradient( to right, #5c4297, #1B1035, #5c4297); */
@@ -59,4 +65,12 @@
  .nav-link:hover {
     text-decoration: underline;
     color:antiquewhite
+ }
+
+ .container {
+    text-align: left;
+ }
+
+ ul {
+    margin-right: 0px;
  }

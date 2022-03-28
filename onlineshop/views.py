@@ -66,3 +66,7 @@ def register(request):
     # if GET request
     else:
         return render(request, "onlineshop/register.html")
+
+def logout(request):
+    logout(request)
+    return HttpResponseRedirect(reverse("index"))
