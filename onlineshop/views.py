@@ -1,7 +1,10 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
+from django.db import IntegrityError
 from django.shortcuts import HttpResponseRedirect
 from django.urls import reverse
+
+from .models import User
 
 # Create your views here.
 def index(request):
@@ -25,3 +28,41 @@ def login(request):
             })
     else:
         return render(request, "onlineshop/login.html")
+
+# view for registering
+def register(request):
+    if request.method == "POST":
+        username = request.POST["username"]
+        email = request.POST["email"]
+        # Ensure password matches confirmation
+        password = request.POST["password"]
+        confirmation = request.POST["confirmation"]
+        if password != confirmation:
+            return render(request, "onlineshop/register.html", {
+                "message": "Passwords must match.",
+                "msg_type": "danger"
+            })
+        if not username:
+            return render(request, "onlineshop/register.html", {
+                "message": "Please enter your username.",
+                "msg_type": "danger"
+            })
+        if not email:
+            return render(request, "onlineshop/register.html", {
+                "message": "Please enter your email.",
+                "msg_type": "danger"
+            })
+        # Attempt to create new user
+        try:
+            user = User.objects.create_user(username, email, password)
+            user.save()
+        except IntegrityError:
+            return render(request, "onlineshop/register.html", {
+                "message": "Username already taken.",
+                "msg_type": "danger"
+            })
+        login(request, user)
+        return HttpResponseRedirect(reverse("index"))
+    # if GET request
+    else:
+        return render(request, "onlineshop/register.html")
