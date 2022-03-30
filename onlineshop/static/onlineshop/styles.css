@@ -3,11 +3,11 @@
     font-size: 10px;
 }
 
-.navbar-nav.flex-fill.justify-content-right {
+/*.navbar-nav.flex-fill.justify-content-right {
    margin-right: 0px;
    padding-right: 0px;
 }
-
+*/
  body {
      /*background: #1B1035;
      background: linear-gradient( to right, #5c4297, #1B1035, #5c4297); */
@@ -20,6 +20,7 @@
 
  .nav-link {
     color:antiquewhite;
+    list-style: none;
  }
 
  .nav-link:hover {
@@ -60,6 +61,10 @@
      
     
 
+ }
+
+ .navbar-nav.justify-content-center {
+    color:rgb(218, 110, 185);
  }
 
  .nav-link:hover {

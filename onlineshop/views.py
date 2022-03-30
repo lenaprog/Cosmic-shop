@@ -10,13 +10,13 @@ from .models import User
 def index(request):
     return render (request,"onlineshop/index.html")
 
-def login(request):
+def login_view(request):
     if request.method == "POST":
 
         # Attempt to sign user in
-        email = request.POST["email"]
+        username = request.POST["username"]
         password = request.POST["password"]
-        user = authenticate(request, username=email, password=password)
+        user = authenticate(request, username=username, password=password)
 
         # Check if authentication successful
         if user is not None:
@@ -67,6 +67,6 @@ def register(request):
     else:
         return render(request, "onlineshop/register.html")
 
-def logout(request):
+def logout_view(request):
     logout(request)
     return HttpResponseRedirect(reverse("index"))
