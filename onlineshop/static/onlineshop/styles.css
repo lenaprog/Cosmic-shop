@@ -9,8 +9,6 @@
 }
 */
  body {
-     /*background: #1B1035;
-     background: linear-gradient( to right, #5c4297, #1B1035, #5c4297); */
     background-color: rgb(116, 110, 129);
     background: linear-gradient(90deg, rgba(85,0,255,1) 0%, rgba(61,9,121,1) 51%, rgba(85,0,255,1) 100%);
     color: antiquewhite;
@@ -72,10 +70,23 @@
     color:antiquewhite
  }
 
- .container {
-    text-align: left;
+ .container.article {
+    padding-top: 5px;
+    text-align: center;
+    border: 0.5px solid rgb(170, 150, 195);
+    border-radius: 10px;
+    background: rgb(255, 210, 255);
+    color: black;
  }
 
  ul {
     margin-right: 0px;
  }
+
+.product {
+   border-radius: 10px;
+}
+
+.shortdescription {
+   font-size: 10px;
+}

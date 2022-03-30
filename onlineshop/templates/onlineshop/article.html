@@ -1,0 +1,21 @@
+{% extends "onlineshop/layout.html" %}
+{% load static %}
+
+{% for article in articles %}
+
+{% block title%}
+{{ article.title }}
+{% endblock%}
+
+{% block body %}
+<div class="container">
+    <h2> {{article.title}}</h2> <br>
+    <a href="{% url 'article' article.title %}"><img class="product"
+            src="{% static 'onlineshop/images/starlightinbottle.jpg' %}" width="100px" height="100px"></a>
+    <p>Description:<br>{{article.description}} </p>
+    <p>Details:<br>{{article.details}}</p>
+    <p>Price {{article.price}}€</p>
+</div>
+{% endblock%}
+
+{% endfor %}

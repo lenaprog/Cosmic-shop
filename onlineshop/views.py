@@ -4,11 +4,13 @@ from django.db import IntegrityError
 from django.shortcuts import HttpResponseRedirect
 from django.urls import reverse
 
-from .models import User
+from .models import User, Article
 
 # Create your views here.
 def index(request):
-    return render (request,"onlineshop/index.html")
+    return render (request, "onlineshop/index.html", {
+        "articles": Article.objects.all()
+    })
 
 def login_view(request):
     if request.method == "POST":
@@ -70,3 +72,10 @@ def register(request):
 def logout_view(request):
     logout(request)
     return HttpResponseRedirect(reverse("index"))
+
+
+def article(request, article_title):
+    article= Article.objects.get(title=article_title)
+    return render (request, "onlineshop/article.html", {
+        "article": article
+    })
