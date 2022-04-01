@@ -1,39 +1,36 @@
 {% extends "onlineshop/layout.html" %}
 
 {% block body %}
+<div class="flex-container">
+    {% if message %}
+    <div class="alert alert-danger">{{ message }}</div>
+    {% endif %}
 
-{% if message %}
-<div class="alert alert-danger">{{ message }}</div>
-{% endif %}
-
-<!-- Title -->
-<br>
-<h1><strong>REGISTER</strong></h1> <br> <br>
-
+    <!-- Title -->
+    <h2>Register</h2>
+</div>
 <!-- <hr class="my-4 pb-2"> -->
-<br>
-<img src="" alt="indeximage" style="height: 50px;" class="embed-responsive">
-<!-- Grid row -->
-<div class="text-left">
+<div class="flex-container">
 
+    <!-- Grid row -->
     <form action="{% url 'register' %}" method="post">
         {% csrf_token %}
+        <img src="" alt="indeximage" style="height: 50px;">
         <div class="form-group">
-            <input class="form-control" autofocus type="text" name="username" placeholder="Username">
+            <input class="col-xs-3" autofocus type="text" name="username" placeholder="Username">
         </div>
         <div class="form-group">
-            <input class="form-control" type="email" name="email" placeholder="Email Address">
+            <input class="col-xs-3" type="email" name="email" placeholder="Email Address">
         </div>
         <div class="form-group">
-            <input class="form-control" type="password" name="password" placeholder="Password">
+            <input class="col-xs-3" type="password" name="password" placeholder="Password">
         </div>
         <div class="form-group">
-            <input class="form-control" type="password" name="confirmation" placeholder="Confirm Password">
+            <input class="col-xs-3" type="password" name="confirmation" placeholder="Confirm Password">
         </div>
-        <input class="btn btn-primary" type="submit" value="Register">
+        <input class="btn btn-primary btn-sm" type="submit" value="Register">
+        <p class="account"> Already have an account? <a href="{% url 'login' %}">Log In here.</a></p>
     </form>
-    <br>
-    Already have an account? <a href="{% url 'login' %}">Log In here.</a>
 </div>
 
 {% endblock %}

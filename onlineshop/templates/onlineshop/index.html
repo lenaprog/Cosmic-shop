@@ -6,13 +6,13 @@ Cosmic shop
 {% endblock%}
 
 {% block body %}
-<div class="container">
+<div class="flex-container">
     <h1 id="welcome">Welcome to the Cosmic Online Shop</h1>
 </div>
 <br>
 <div class="container article">
     {% for article in articles %}
-    <h4><a href="{% url 'article' article.title %}">{{article.title}}</a> </h4>
+    <h4><a class="producttitle" href="{% url 'article' article.title %}">{{article.title}}</a> </h4>
     <p class="shortdescription">{{article.short_description}}</p>
     <a href="{% url 'article' article.title %}"><img class="product"
             src="{% static 'onlineshop/images/starlightinbottle.jpg' %}" width="100px" height="100px"></a>

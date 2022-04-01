@@ -8,13 +8,25 @@
 {% endblock%}
 
 {% block body %}
-<div class="container">
-    <h2> {{article.title}}</h2> <br>
-    <a href="{% url 'article' article.title %}"><img class="product"
-            src="{% static 'onlineshop/images/starlightinbottle.jpg' %}" width="100px" height="100px"></a>
-    <p>Description:<br>{{article.description}} </p>
-    <p>Details:<br>{{article.details}}</p>
-    <p>Price {{article.price}}€</p>
+<div class="flex-container">
+    <div>
+        <h2> {{article.title}}</h2>
+    </div>
+    <br>
+    <div>
+        <a href="{% url 'article' article.title %}"><img class="product"
+                src="{% static 'onlineshop/images/starlightinbottle.jpg' %}" width="100px" height="100px"></a>
+    </div>
+    <br>
+    <div>
+        <p>Description:<br>{{article.description}} </p>
+        <p>Details:<br>{{article.details}}</p>
+        <p class="price">Price {{article.price}}€</p>
+    </div>
+
+</div>
+<div id="buybutton">
+    <input class="btn btn-primary" type="button" value="Add to Shopping basket">
 </div>
 {% endblock%}
 
