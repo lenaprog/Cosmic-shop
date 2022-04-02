@@ -81,10 +81,9 @@ body {
 .container.article {
    padding-top: 5px;
    text-align: center;
-   border: 0.5px solid rgb(170, 150, 195);
-   border-radius: 50px;
-   background: rgb(224, 198, 111);
-   ;
+   /*border: 4px solid #5BF0C6;*/
+   border-radius: 30px;
+   background: #CBCAFF;
    color: black;
 
 }
@@ -121,4 +120,28 @@ ul {
 #buybutton {
    text-align: center;
    margin-top: 10px;
+}
+
+.shoppingbutton {
+   text-align: center;
+   margin-top: 10px;
+   flex-direction: row;
+}
+
+.cartimage {
+   width: 100px;
+   height: 100px;
+   margin-top: 5px;
+   margin-bottom: 5px;
+}
+
+.row.header {
+   margin-bottom: 10px;
+   font-weight: bold;
+}
+
+.row.items {
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }

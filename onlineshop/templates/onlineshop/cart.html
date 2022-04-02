@@ -1,0 +1,52 @@
+{% extends "onlineshop/layout.html" %}
+{% load static %}
+
+{% block title%}
+Shopping Basket
+{% endblock%}
+
+{% block body %}
+<div class="flex-container">
+    <div>
+        <h2>Your shopping basket</h2>
+    </div>
+    <div class="container article">
+        <div class="row header">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-2">Product</div>
+            <div class="col-lg-2">Price</div>
+            <div class="col-lg-2">Quantity</div>
+            <div class="col-lg-2">Total</div>
+        </div>
+        <div class="row items">
+            <div class="col-lg-4"><img class="cartimage" src="{% static 'onlineshop/images/starlightinbottle.jpg' %}"
+                    alt="image"></div>
+            <div class="col-lg-2">starlight in a bottle</div>
+            <div class="col-lg-2">1500.00€</div>
+            <div class="col-lg-2">1</div>
+            <div class="col-lg-2">1500.00€</div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-3">
+            <div class="shoppingbutton">
+                <button class="btn btn-primary" type="button" value="Continue"><a href="{% url 'index'%}"></a>
+                    Continue</button>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="shoppingbutton">
+                <input class=" btn btn-primary" type="button" value="Checkout" </div>
+            </div>
+            <div class="col-sm-3">
+
+            </div>
+        </div>
+
+    </div>
+    {% endblock%}
