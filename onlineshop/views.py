@@ -4,7 +4,7 @@ from django.db import IntegrityError
 from django.shortcuts import HttpResponseRedirect
 from django.urls import reverse
 
-from .models import User, Article
+from .models import *
 
 # Create your views here.
 def index(request):

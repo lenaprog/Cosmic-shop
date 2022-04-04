@@ -14,8 +14,8 @@
     </div>
     <br>
     <div>
-        <a href="{% url 'article' article.title %}"><img class="product"
-                src="{% static 'onlineshop/images/starlightinbottle.jpg' %}" width="200px" height="200px"></a>
+        <a href="{% url 'article' article.title %}"><img class="product" src="{{article.image.url}}" width="200px"
+                height="200px"></a>
     </div>
     <br>
     <div>
