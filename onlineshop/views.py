@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate, login, logout
 from django.db import IntegrityError
 from django.shortcuts import HttpResponseRedirect
@@ -88,7 +88,7 @@ def cart(request):
     return render(request, "onlineshop/cart.html")
 
    
-class ContactCreate(CreateView):
+ class ContactCreate(CreateView):
     model = Contact
     fields = ["first_name", "last_name", "message"]
     success_url = reverse_lazy("thanks")
