@@ -8,8 +8,7 @@ from django.urls import reverse_lazy
 from django.http import HttpResponse
 from .forms import ContactForm
 
-from .models import User, Article, Contact
-
+from .models import *
 # Create your views here.
 def index(request):
     return render (request, "onlineshop/index.html", {
