@@ -1,10 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.db import IntegrityError
 from django.shortcuts import HttpResponseRedirect
 from django.urls import reverse
+from django.views.generic import CreateView
+from django.urls import reverse_lazy
+from django.http import HttpResponse
+from .forms import ContactForm
 
-from .models import User, Article
+from .models import User, Article, Contact
 
 # Create your views here.
 def index(request):
@@ -82,3 +86,13 @@ def article(request, article_title):
 
 def cart(request):
     return render(request, "onlineshop/cart.html")
+
+   
+class ContactCreate(CreateView):
+    model = Contact
+    fields = ["first_name", "last_name", "message"]
+    success_url = reverse_lazy("thanks")
+
+
+def thanks(request):
+    return HttpResponse("Thank you! Will get in touch soon.")   
