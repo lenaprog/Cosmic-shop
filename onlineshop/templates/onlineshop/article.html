@@ -1,0 +1,33 @@
+{% extends "onlineshop/layout.html" %}
+{% load static %}
+
+{% for article in articles %}
+
+{% block title%}
+{{ article.title }}
+{% endblock%}
+
+{% block body %}
+<div class="flex-container">
+    <div>
+        <h2> {{article.title}}</h2>
+    </div>
+    <br>
+    <div>
+        <a href="{% url 'article' article.title %}"><img class="product" src="{{article.image.url}}" width="200px"
+                height="200px"></a>
+    </div>
+    <br>
+    <div>
+        <p>Description:<br>{{article.description}} </p>
+        <p>Details:<br>{{article.details}}</p>
+        <p class="price">Price {{article.price}}€</p>
+    </div>
+
+</div>
+<div id="buybutton">
+    <a class="btn btn-primary" type="button" value="Add to Shopping basket" href="#">Add to Shopping basket</a>
+</div>
+{% endblock%}
+
+{% endfor %}

@@ -1,0 +1,41 @@
+{% extends "onlineshop/layout.html" %}
+{% load static %}
+
+{% block title %}
+Register
+{% endblock%}
+
+{% block body %}
+<div class="flex-container">
+    {% if message %}
+    <div class="alert alert-danger">{{ message }}</div>
+    {% endif %}
+
+    <!-- Title -->
+    <h2>Register</h2>
+</div>
+<!-- <hr class="my-4 pb-2"> -->
+<div class="flex-container">
+
+    <!-- Grid row -->
+    <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+        <img src="" alt="indeximage" style="height: 50px;">
+        <div class="form-group">
+            <input class="col-xs-3" autofocus type="text" name="username" placeholder="Username">
+        </div>
+        <div class="form-group">
+            <input class="col-xs-3" type="email" name="email" placeholder="Email Address">
+        </div>
+        <div class="form-group">
+            <input class="col-xs-3" type="password" name="password" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <input class="col-xs-3" type="password" name="confirmation" placeholder="Confirm Password">
+        </div>
+        <input class="btn btn-primary btn-sm" type="submit" value="Register">
+        <p class="account"> Already have an account? <a href="{% url 'login' %}">Log In here.</a></p>
+    </form>
+</div>
+
+{% endblock %}
