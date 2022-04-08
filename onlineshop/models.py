@@ -8,6 +8,7 @@ class User(AbstractUser):
     pass
 
 class Article (models.Model):
+    article_id=models.IntegerField(primary_key=True, default=1)
     title = models.CharField(max_length=64, null=True, blank=True)
     short_description = models.TextField(default=None, null=True, blank=True)
     description = models.TextField()

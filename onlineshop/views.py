@@ -79,6 +79,10 @@ def article(request, article_title):
     return render (request, "onlineshop/article.html", {
         "article": article
     })
+   
 
 def cart(request):
     return render(request, "onlineshop/cart.html")
+
+def checkout(request):
+    return render(request, "onlineshop/checkout.html")
