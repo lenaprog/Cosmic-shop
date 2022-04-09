@@ -8,65 +8,50 @@ Shopping Basket
 {% block body %}
 <div class="flex-container">
     <div>
-        <h2>Your shopping basket</h2>
+        <h2 id="cart">Your shopping basket</h2>
     </div>
     <div class="container article">
         <div class="cartitem">
             <div class="row header">
                 <div class="col-lg-3"></div>
-                <div class="col-lg-2">Product</div>
-                <div class="col-lg-2">Price</div>
-                <div class="col-lg-2">Quantity</div>
-                <div class="col-lg-2">Total</div>
-            </div>
-            <div class="row items">
-                <div class="col-lg-3">
-                    <img class="cartimage" src="{% static 'onlineshop/images/starlightinbottle.jpg' %}" alt="image">
-                </div>
-                <div class="col-lg-2">starlight in a bottle</div>
-                <div class="col-lg-2">1500.00€</div>
-                <div class="col-lg-2">
-                    <div class="quantity"><i class="fa-solid fa-plus"></i></div>
-                    <div class="quantity">1</div>
-                    <div class="quantity"><i class="fa-solid fa-minus"></i></div>
-                </div>
-                <div class="col-lg-2">1500.00€</div>
-            </div>
-            <div class="row items">
-
-                <div class="col-lg-3">
-                    <img class="cartimage" src="{% static 'onlineshop/images/starlightinbottle.jpg' %}" alt="image">
-                </div>
-                <div class="col-lg-2">UFO</div>
-                <div class="col-lg-2">1500.00€</div>
-                <div class="col-lg-2">
-                    <div class="quantity"><i class="fa-solid fa-plus"></i></div>
-                    <div class="quantity">1</div>
-                    <div class="quantity"><i class="fa-solid fa-minus"></i></div>
-                </div>
-                <div class="col-lg-2">220.00€</div>
+                <div class="col-lg-2"><u>Product</u></div>
+                <div class="col-lg-2"><u>Price</u></div>
+                <div class="col-lg-2"><u>Quantity</u></div>
+                <div class="col-lg-2"><u>Total</u></div>
             </div>
 
+            {% for item in items %}
+            <div class="row items">
+                <div class="col-lg-3">
+                    <img class="cartimage" src="{{item.article.image.url}} " alt="image">
+                </div>
+                <div class="col-lg-2">{{item.article.title}}</div>
+                <div class="col-lg-2">{{item.article.price}}</div>
+                <div class="col-lg-2">
+                    <div class="quantity"><i class="fa-solid fa-plus"></i></div>
+                    <div class="quantity">{{item.quantity}}</div>
+                    <div class="quantity"><i class="fa-solid fa-minus"></i></div>
+                </div>
+                <div class="col-lg-2">€ {{item.get_total}}</div>
+            </div>
+            {% endfor %}
+            <div class="row total">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-2"></div>
+                <div class="col-lg-2"></div>
+                <div class="col-lg-2"></div>
+                <div class="col-lg-2">€ {{order.get_cart_total}}</div>
+            </div>
         </div>
     </div>
-
-    <div class="container">
+    <div class="container cartbutton">
         <div class="row">
-            <div class="col-sm-3">
+            <div class="shoppingbutton">
+                <a class="btn btn-primary" href="{% url 'index'%}">Continue shopping</a>
             </div>
-            <div class="col-sm-3">
-                <div class="shoppingbutton">
-                    <a class="btn btn-primary" href="{% url 'index'%}">Continue shopping</a>
-                </div>
+            <div class="shoppingbutton">
+                <a class="btn btn-primary" href="{% url 'checkout'%}">Pay</a>
             </div>
-            <div class="col-sm-3">
-                <div class="shoppingbutton">
-                    <a class="btn btn-primary" href="{% url 'checkout'%}">Pay</a>
-                </div>
-                <div class="col-sm-3">
-
-                </div>
-            </div>
-
         </div>
-        {% endblock%}
+    </div>
+    {% endblock%}

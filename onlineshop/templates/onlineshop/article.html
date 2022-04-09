@@ -14,20 +14,18 @@
     </div>
     <br>
     <div>
-        <a href="{% url 'article' article.title %}"><img class="product" src="{{article.image.url}}" width="200px"
+        <a href="{% url 'article_title' article.title %}"><img class="product" src="{{article.image.url}}" width="200px"
                 height="200px"></a>
     </div>
     <br>
     <div>
         <p>Description:<br>{{article.description}} </p>
         <p>Details:<br>{{article.details}}</p>
-        <p class="price">Price {{article.price}}€</p>
+        <p class="article-price">Price {{article.price}}€</p>
     </div>
 
 </div>
-<div id="buybutton">
-    <a class="btn btn-primary" type="button" value="Add to Shopping basket" href="{% url 'cart' %}">Add to Shopping
-        basket</a>
+
 </div>
 {% endblock%}
 

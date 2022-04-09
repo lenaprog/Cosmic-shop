@@ -64,6 +64,11 @@ body {
    animation-duration: 1s;
 }
 
+/*header cart.html */
+#cart {
+   color: yellow
+}
+
 .price {
    animation-name: glow ease-in-out infinite alternate;
 
@@ -123,31 +128,18 @@ ul {
    flex-direction: column;
 }
 
-#buybutton {
+#addbutton {
    text-align: center;
-   margin-top: 10px;
-}
-
-.shoppingbutton {
-   text-align: center;
-   margin-top: 10px;
-   flex-direction: column;
-}
-
-.cartimage {
-   width: 100px;
-   height: 100px;
-   margin-top: 5px;
-   margin-bottom: 5px;
-   border-radius: 5px;
-   display: inline-block
+   margin-bottom: 10px;
 }
 
 /*header in cart.html for products in cart*/
 .row.header {
    margin-bottom: 10px;
-   font-weight: bold;
-   font-size: 25px;
+   margin-top: 20px;
+   font-size: 20px;
+   justify-content: center;
+   align-items: center;
 }
 
 /*products added to cart.html*/
@@ -155,6 +147,17 @@ ul {
    display: flex;
    justify-content: center;
    align-items: center;
+}
+
+/*total of all cart items in cart.html*/
+.row.total {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-weight: bold;
+   color: rgb(158, 236, 219);
+   border-top: rgb(218, 110, 185);
+   margin-top: 30px
 }
 
 /*plus and minus for quantity in cart*/
@@ -168,6 +171,33 @@ ul {
    flex-direction: column;
 }
 
+.cartbutton {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   margin-top: 50px;
+}
+
+.shoppingbutton {
+   text-align: center;
+   margin-top: 10px;
+   justify-content: space-around;
+   margin-left: 15px;
+   margin-right: 15px;
+}
+
+.cartimage {
+   width: 150px;
+   height: 150px;
+   margin-top: 5px;
+   margin-bottom: 5px;
+   border-radius: 5px;
+   display: inline-block;
+   border: 5px solid rgb(238, 238, 102)
+}
+
+/*checkout.html*/
+
 .outer-container {
    display: flex;
    flex-direction: row;
@@ -178,9 +208,31 @@ ul {
 }
 
 .container1 {
-   margin-left: 450px
+   margin-left: 450px;
+   margin-right: 10px;
+   flex-direction: row;
 }
 
-.container2 {
-   margin-left: 250px
+
+
+/*article in list on checkout.html*/
+.checkoutitems {
+   font-size: 15px;
+   display: inline-block;
+
+}
+
+.checkoutimage {
+   width: 50px;
+   height: 50px;
+   border-radius: 5px;
+}
+
+.checkout.row {
+   display: flex;
+   justify-content: space-between
+}
+
+.checkoutitems.price {
+   float: right;
 }

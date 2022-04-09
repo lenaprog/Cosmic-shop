@@ -14,11 +14,15 @@ Cosmic shop
     <div class="row">
         {% for article in articles %}
         <div class="col-lg-5 singleitem">
-            <h4><a class="producttitle" href="{% url 'article' article.title %}">{{article.title}}</a> </h4>
+            <h4><a class="producttitle" href="{% url 'article_title' article.title %}">{{article.title}}</a> </h4>
             <p class="shortdescription">{{article.short_description}}</p>
-            <a href="{% url 'article' article.title %}"><img class="product" src="{{article.image.url}}" width="100px"
-                    height="100px"></a>
+            <a href="{% url 'article_title' article.title %}"><img class="product" src="{{article.image.url}}"
+                    width="100px" height="100px"></a>
             <p>{{article.price}}€</p>
+            <button id="addbutton" data-article="{{article.article_id}}" data-action="add"
+                class="btn btn-primary add-btn update-cart">Add to basket
+            </button>
+
         </div>
         {% endfor %}
     </div>

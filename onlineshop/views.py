@@ -3,6 +3,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.db import IntegrityError
 from django.shortcuts import HttpResponseRedirect
 from django.urls import reverse
+from django.http import JsonResponse
+from django.core.exceptions import ObjectDoesNotExist
 
 from .models import *
 
@@ -77,12 +79,34 @@ def logout_view(request):
 def article(request, article_title):
     article= Article.objects.get(title=article_title)
     return render (request, "onlineshop/article.html", {
-        "article": article
+    "article": article
     })
+
+    
+    
    
 
 def cart(request):
-    return render(request, "onlineshop/cart.html")
+    if request.user.is_authenticated:
+        user = request.user
+        order, created = Order.objects.get_or_create(user=user, complete=False)
+        items = order.orderitem_set.all()
+    else:
+        items = []
+
+    context ={"items": items, "order": order}
+    return render(request, "onlineshop/cart.html", context)
 
 def checkout(request):
-    return render(request, "onlineshop/checkout.html")
+    if request.user.is_authenticated:
+        user = request.user
+        order, created = Order.objects.get_or_create(user=user, complete=False)
+        items = order.orderitem_set.all()
+    else:
+        items = []
+
+    context ={"items": items, "order": order}
+    return render(request, "onlineshop/checkout.html", context)
+
+def updateItem(request):
+    return JsonResponse(request,'Item was added', safe=False)
