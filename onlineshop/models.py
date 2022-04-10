@@ -8,7 +8,6 @@ class User(AbstractUser):
     pass
 
 class Article (models.Model):
-    article_id=models.IntegerField(primary_key=True, default=1)
     title = models.CharField(max_length=64, null=True, blank=True)
     short_description = models.TextField(default=None, null=True, blank=True)
     description = models.TextField()
@@ -23,6 +22,14 @@ def imageURL(self):
     except:
         url =''
     return url 
+
+class Contact(models.Model):
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    message = models.TextField(max_length=400)
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
 
 
 class Order(models.Model):
@@ -53,3 +60,4 @@ class OrderItem(models.Model):
     def get_total(self):
         total = self.article.price * self.quantity
         return total
+

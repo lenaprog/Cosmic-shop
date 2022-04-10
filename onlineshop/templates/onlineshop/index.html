@@ -11,16 +11,15 @@ Cosmic shop
 </div>
 <br>
 <div class="flex-container container article">
-    <div class="row">
+    <div class="row index">
         {% for article in articles %}
         <div class="col-lg-5 singleitem">
             <h4><a class="producttitle" href="{% url 'article_title' article.title %}">{{article.title}}</a> </h4>
             <p class="shortdescription">{{article.short_description}}</p>
-            <a href="{% url 'article_title' article.title %}"><img class="product" src="{{article.image.url}}"
+            <a href="{% url 'article_title' article.title %}"><img class="productimage" src="{{article.image.url}}"
                     width="100px" height="100px"></a>
-            <p>{{article.price}}€</p>
-            <button id="addbutton" data-article="{{article.article_id}}" data-action="add"
-                class="btn btn-primary add-btn update-cart">Add to basket
+            <p class="productprice">{{article.price}}€</p>
+            <button class="addbutton btn btn-primary add-btn">Add to basket
             </button>
 
         </div>

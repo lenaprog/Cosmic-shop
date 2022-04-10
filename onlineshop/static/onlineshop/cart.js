@@ -1,4 +1,10 @@
-var updateBtns = document.getElementsByClassName("update-cart")
+if (document.readyState == 'loading') {
+    document.addEventListener('DOMContentLoaded', ready)
+} else {
+    ready()
+}
+
+/*var updateBtns = document.getElementsByClassName("update-cart")
 
 for (var i = 0; i < updateBtns.length; i++) {
     updateBtns[i].addEventListener('click', function () {
@@ -35,4 +41,29 @@ function updateUserOrder(articleId, action) {
         .then((data) => {
             console.log('data:', data)
         })
+}*/
+
+function ready() {
+    let addToCartButtons = document.getElementsByClassName("addbutton")
+    for (let i = 0; i < addToCartButtons.length; i++) {
+        let button = addToCartButtons[i]
+        button.addEventListener('click', addToCartClicked)
+    }
+    function addToCartClicked(event) {
+        let button = event.target
+        let singleItem = button.parentElement
+        let title = singleItem.getElementsByClassName('producttitle')[0].innerText
+        let price = singleItem.getElementsByClassName('productprice')[0].innerText
+        let imageSrc = singleItem.getElementsByClassName('productimage')[0].src
+        console.log(title, price, imageSrc)
+        addItemToCart(title, price, imageSrc)
+    }
+
+    function addItemToCart(title, price, imageSrc) {
+        let cartRow = document.createElement('div')
+        cartRow.innerText = title
+        let cartItems = ""
+        cartItems = document.getElementsByClassName('cart-items')[0]
+        cartItems.append(cartRow)
+    }
 }

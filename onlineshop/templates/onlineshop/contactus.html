@@ -1,0 +1,29 @@
+{% extends "onlineshop/layout.html" %}
+{% load static %}
+
+{% block title %}
+Contact Us!
+{% endblock%}
+
+{% block body %}
+<div class="flex-container">
+    <h2>Contact Us</h2>
+    <br>
+    {% if message %}
+    <h2>{{message}}</h2>
+    {% endif %}
+
+</div>
+<div class="flex-container">
+    <form method="POST" action="{% url 'contact' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form }}
+        </div>
+        <div id="submitbutton">
+            <button type="submit" value="Submit">SEND</button>
+        </div>
+
+    </form>
+</div>
+{% endblock %}

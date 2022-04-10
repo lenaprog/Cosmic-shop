@@ -3,10 +3,13 @@ from django.contrib.auth import authenticate, login, logout
 from django.db import IntegrityError
 from django.shortcuts import HttpResponseRedirect
 from django.urls import reverse
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.core.exceptions import ObjectDoesNotExist
+from django.views.generic import CreateView
+from django.urls import reverse_lazy
 
 from .models import *
+from .forms import ContactForm
 
 # Create your views here.
 def index(request):
@@ -83,9 +86,6 @@ def article(request, article_title):
     })
 
     
-    
-   
-
 def cart(request):
     if request.user.is_authenticated:
         user = request.user
@@ -96,6 +96,30 @@ def cart(request):
 
     context ={"items": items, "order": order}
     return render(request, "onlineshop/cart.html", context)
+
+def ContactCreate(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+
+        if form.is_valid():
+            form.user=request.user
+            form.save()
+
+            return render (request, "onlineshop/contactus.html", {
+                "message": "Thank you for contacting us!"
+ 
+            })
+
+        else:
+            return render (request, "onlineshop/contactus.html")
+
+    return render(request, "onlineshop/contactus.html", {
+        "form": ContactForm,
+    })
+        
+    #model = Contact
+    #fields = ["first_name", "last_name", "message"]
+    #success_url = reverse_lazy("thanks")
 
 def checkout(request):
     if request.user.is_authenticated:

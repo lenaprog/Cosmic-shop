@@ -96,6 +96,8 @@ body {
    border: 4px dotted #5BF0C6;
    margin: 10px;
    padding-top: 10px;
+   background-color: aliceblue;
+   color: rgba(61, 9, 121, 1)
 }
 
 .producttitle {
@@ -128,10 +130,18 @@ ul {
    flex-direction: column;
 }
 
-#addbutton {
+/* contact form styling*/
+.contactform {
+   flex-direction: column
+}
+
+/*button in index.html*/
+.addbutton {
    text-align: center;
    margin-bottom: 10px;
 }
+
+
 
 /*header in cart.html for products in cart*/
 .row.header {
@@ -143,7 +153,7 @@ ul {
 }
 
 /*products added to cart.html*/
-.row.items {
+.row.cart-item {
    display: flex;
    justify-content: center;
    align-items: center;
@@ -196,6 +206,8 @@ ul {
    border: 5px solid rgb(238, 238, 102)
 }
 
+
+
 /*checkout.html*/
 
 .outer-container {
@@ -209,8 +221,12 @@ ul {
 
 .container1 {
    margin-left: 450px;
-   margin-right: 10px;
+   margin-right: 100px;
    flex-direction: row;
+}
+
+.container2 {
+   justify-content: right;
 }
 
 
@@ -235,4 +251,19 @@ ul {
 
 .checkoutitems.price {
    float: right;
+   font-size: 15px;
+}
+
+/*Style the submit button with a specific background color */
+#submitbutton {
+   color: white;
+   padding: 12px 20px;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+button[type=submit]:hover {
+   background-color: #45a049;
 }
